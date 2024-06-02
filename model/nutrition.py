@@ -2,7 +2,7 @@ from googlesearch import search
 import requests
 from bs4 import BeautifulSoup
 import re
-from config import *
+from model.config import *
 
 class NutritionScraper:
     def __get_query(self, dish):
