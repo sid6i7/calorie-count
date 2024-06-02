@@ -11,7 +11,12 @@ genai.configure(api_key=key)
 
 class Model:
     def __init__(self) -> None:
-        self.__prompt = """Here is a picture of a food item from India. Identify what type of food item it is. You're supposed to follow the response instructions STRICTLY as follows: Only respond with the name and nothing else. If you don't know or the image is not clear enough then reply with "I don't know" only and nothing else.
+        self.__prompt = """Here is a picture of a food item from India. Identify what type of food item it is. And response in the form of a json as follows
+        {
+            name: (name of the food item you found),
+            description: (very short description of the food item you found)
+        }
+        You're supposed to follow the response instructions STRICTLY as follows: Only respond with the name, description and nothing else. If you don't know or the image is not clear enough or then reply with "I don't know" only and nothing else. If its not a food item then reply with "Not food" and nothing else.
         """
 
         self.generation_config = {
