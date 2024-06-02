@@ -1,6 +1,7 @@
 import google.generativeai as genai
 import os
 from dotenv import load_dotenv
+from model.nutrition import NutritionScraper
 
 load_dotenv()
 
@@ -46,3 +47,10 @@ class Model:
         })
 
         return response.text.strip()
+    
+    def get_nutrition(self, path):
+        dish_name = self.identify_food(path)
+        scraper = NutritionScraper()
+        nutrition = scraper.get_nutrition(dish_name)
+        print(nutrition)
+        return nutrition
