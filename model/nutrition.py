@@ -56,8 +56,7 @@ class NutritionScraper:
                     page = requests.get(url).text
                     all_nutritions_dict = self.__parse_page(page)
                     if not self.__search:
-                        break
-                    return all_nutritions_dict
+                        return all_nutritions_dict
                 except:
                     print('Some error occured in', url, "continuing search")
                     continue
